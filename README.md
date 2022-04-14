@@ -17,3 +17,34 @@
   - Build command is `npm run build`
   - Output directory is `dist`
   - Install command is `npm install`
+
+## Hiding API Keys
+
+- Install dotenv - `npm install dotenv`
+- Create a .env file
+
+```raw
+API_KEY=value
+SECOND_API_KEY=value
+```
+
+- Make sure .env is in my .gitignore (every time you change your .env file, you have to restart your server)
+- At the top of my JS file, import dotenv's config
+
+```js
+import "dotenv/config";
+```
+
+- Access environment variables through `process.env`
+
+```js
+const apiKey = process.env.API_KEY;
+const secondApiKey = process.env.SECOND_API_KEY;
+```
+
+- Tell Vercel about your environment variables
+  - Project Settings
+  - Environment Variables
+  - "Add New"
+    - For each line of your .env file, add them here
+  - Redeploy your project (by adding, committing and pushing)
